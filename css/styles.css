@@ -1,0 +1,234 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Layout: Ensures footer stays at the bottom */
+html, body {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Flexbox layout for body to stretch */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures footer is pushed down */
+}
+
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: black;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.company-name {
+    font-size: 1.5em;
+    font-weight: bold;
+    flex: 1;
+    text-align: center;
+    color: white;
+}
+
+.company-info {
+    font-size: 14px;
+    color: #333;
+    text-align: right;
+    flex: 1;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+
+
+/* Navigation styles */
+nav {
+    background-color: #444;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #f4b400; /* Add hover effect */
+}
+
+/* Main content styles */
+main {
+    flex: 1; /* Allows the main content to grow */
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+main h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+main p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+
+section {
+    padding: 20px;
+    margin: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.service-item {
+    margin: 20px 0;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.cta-button:hover {
+    background-color: #555;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Form Styling */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+form button {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+form p {
+    text-align: center;
+    margin-top: 20px;
+}
+
+form a {
+    color: #333;
+    text-decoration: underline;
+}
+
+form a:hover {
+    color: #555;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.product {
+    float: left;
+    text-align: center;
+    width: 50%;
+    background-color: white;
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.product img {
+    width: 60%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.product p {
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+    .product {
+        float: left;
+        width: 100%;
+    }
+}
