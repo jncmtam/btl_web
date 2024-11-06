@@ -56,15 +56,15 @@
 /database
     |-- db.sql
 /src
-    |-- controllers
-        |-- admin
-        |-- error
-        |-- main
-    |-- models
-    |-- views
-        |-- admin
-        |-- error
-        |-- main
+    |-- /controllers
+        |-- /admin
+        |-- /error
+        |-- /main
+    |-- /models
+    |-- /views
+        |-- /admin
+        |-- /error
+        |-- /main
 
     |-- index.php
     |-- routes.php
