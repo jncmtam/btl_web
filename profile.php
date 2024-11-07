@@ -79,7 +79,6 @@ $conn->close();
     <main>
         <h1>Thông tin cá nhân</h1>
 
-       
         <form action="profile.php" method="POST">
             <label for="username">Username:</label>
             <input type="text" id="username" value="<?php echo $user['username']; ?>" readonly>

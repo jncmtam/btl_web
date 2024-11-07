@@ -19,10 +19,7 @@ $role = isset($_SESSION['role']) ? $_SESSION['role'] : 'guess';
     <?php include 'nav.php'; ?>
 
     <main>
-        <section id="about-us">
-            <h1>About Our Company</h1>
-            <p>We are a company that provides exceptional services in various industries...</p>
-        </section>
+        
     </main>
 
     <?php include 'footer.php'; ?>

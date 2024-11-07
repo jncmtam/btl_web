@@ -27,14 +27,17 @@ $result = $conn->query($sql);
     <main>
         <h1>Danh Sách Sản Phẩm</h1>
 
+        <div class="product-list">
         <?php while ($product = $result->fetch_assoc()) : ?>
-            <div >
+            <div class="product">
                 <h2><?php echo $product['name']; ?></h2>
                 <p>Giá: <?php echo $product['price']; ?> VND</p>
                 <p>Số lượng: <?php echo $product['quantity']; ?></p>
                 <img src="<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>" width="100"><br>
             </div>
         <?php endwhile; ?>
+        </div>
+        
     </main>
 
     <?php include 'footer.php'; ?>

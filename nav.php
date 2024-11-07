@@ -18,12 +18,16 @@
             <li><a href="profile.php">Profile</a></li>
         <?php endif; ?>
 
-        <?php if ($role === 'guess' || $role === 'user'): ?>
+        <?php if ($role === 'user'): ?>
             <li><a href="contact.php">Contact</a></li>
         <?php endif; ?>
 
         <?php if ($role === 'user'): ?>
             <li><a href="pricing.php">Pricing</a></li>
+        <?php endif; ?>
+
+        <?php if ($role === 'admin'): ?>
+            <li><a href="contact_admin.php">Management Feedback</a></li>
         <?php endif; ?>
 
         <?php if ($role === 'admin'): ?>
@@ -33,7 +37,6 @@
         <?php if ($role === 'admin'): ?>
             <li><a href="usermanagement.php">Management User</a></li>
         <?php endif; ?>
-
 
         <?php if ($role === 'guess'): ?>
             <li><a href="login.php">Login</a></li>

@@ -24,23 +24,7 @@ $role = isset($_SESSION['role']) ? $_SESSION['role'] : 'guess';
     <?php include 'nav.php'; ?>
 
     <main>
-        <section id="pricing">
-            <h1>Pricing</h1>
-            <table>
-                <tr>
-                    <th>Service</th>
-                    <th>Price</th>
-                </tr>
-                <tr>
-                    <td>Service 1</td>
-                    <td>$100</td>
-                </tr>
-                <tr>
-                    <td>Service 2</td>
-                    <td>$200</td>
-                </tr>
-            </table>
-        </section>
+        
     </main>
 
     <?php include 'footer.php'; ?>

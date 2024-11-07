@@ -50,12 +50,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_user'])) {
     $username = $_POST['username'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
-    $password = $_POST['password']; 
 
     // Cập nhật thông tin người dùng trong cơ sở dữ liệu
-    $sql = "UPDATE users SET username=?, email=?, phone=?, password=? WHERE id=?";
+    $sql = "UPDATE users SET username=?, email=?, phone=? WHERE id=?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssssi", $username, $email, $phone, $password, $update_id);
+    $stmt->bind_param("ssssi", $username, $email, $phone, $update_id);
 
     if ($stmt->execute()) {
         echo "<script>alert('Cập nhật người dùng thành công!'); window.location.href='usermanagement.php';</script>";
@@ -97,6 +96,15 @@ $result = $conn->query($sql);
     <meta name="description" content="Services and products page">
     <title>User Management</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script>
+        function showEditForm() {
+            document.getElementById('editForm').style.display = 'block';
+        }
+        
+        function hideEditForm() {
+            document.getElementById('editForm').style.display = 'none';
+        }
+    </script>
 </head>
 <body>
     
@@ -125,7 +133,7 @@ $result = $conn->query($sql);
                         echo "<td>" . $row['email'] . "</td>";
                         echo "<td>" . $row['phone'] . "</td>";
                         echo "<td>
-                                <a href='usermanagement.php?edit_id=" . $row['id'] . "'>Sửa</a> |
+                                <a href='usermanagement.php?edit_id=" . $row['id'] . "' onclick='showEditForm()'>Sửa</a> |
                                 <a href='usermanagement.php?delete_id=" . $row['id'] . "' onclick='return confirm(\"Bạn có chắc chắn muốn xóa người dùng này không?\")'>Xóa</a>
                             </td>";
                         echo "</tr>";
@@ -138,25 +146,26 @@ $result = $conn->query($sql);
         </table>
 
         <!-- Form sửa người dùng nếu có -->
-        <?php if (isset($user)): ?>
-            <h2>Sửa thông tin người dùng</h2>
+        <h2>Sửa thông tin người dùng</h2>
+        <div id="editForm" style="display: <?php echo isset($user) ? 'block' : 'none'; ?>;">
             <form action="" method="POST">
-                <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
+                <input type="hidden" name="user_id" value="<?php echo isset($user) ? $user['id'] : ''; ?>">
                 <label for="username">Tên người dùng:</label>
-                <input type="text" name="username" id="username" value="<?php echo $user['username']; ?>" required>
+                <input type="text" name="username" id="username" value="<?php echo isset($user) ? $user['username'] : ''; ?>" required>
                 <br>
                 <label for="email">Email:</label>
-                <input type="email" name="email" id="email" value="<?php echo $user['email']; ?>" required>
+                <input type="email" name="email" id="email" value="<?php echo isset($user) ? $user['email'] : ''; ?>" required>
                 <br>
                 <label for="phone">Điện thoại:</label>
-                <input type="text" name="phone" id="phone" value="<?php echo $user['phone']; ?>" required>
+                <input type="text" name="phone" id="phone" value="<?php echo isset($user) ? $user['phone'] : ''; ?>" required>
                 <br>
                 <label for="password">Mật khẩu:</label>
                 <input type="password" name="password" id="password" required>
                 <br>
                 <input type="submit" name="update_user" value="Cập nhật người dùng">
+                <button type="button" onclick="hideEditForm()">Hủy</button>
             </form>
-        <?php endif; ?>
+        </div>
 
         <!-- Form thêm người dùng -->
         <h2>Thêm người dùng mới</h2>

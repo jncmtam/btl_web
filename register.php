@@ -11,7 +11,11 @@
 
     <?php include 'header.php'; ?>
 
-    <?php include 'nav.php'; ?>
+    <nav>
+        <ul>
+            <li><a href="index.php">Home</a></li>
+        </ul>
+    </nav>
 
     <main>
         <section id="register">
