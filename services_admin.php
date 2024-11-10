@@ -25,9 +25,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if ($conn->query($sql) === TRUE) {
-        $message = "Cập nhật sản phẩm thành công!";
+        echo "<script>alert('Cập nhật sản phẩm thành công!'); window.location.href = 'services_admin.php';</script>";
+        // $message = "Cập nhật sản phẩm thành công!";
     } else {
-        $message = "Lỗi: " . $conn->error;
+        echo "<script>alert('Phản hồi đã được xóa!".$conn->error."'); window.location.href = 'contact_admin.php';</script>";
+        // $message = "Lỗi: " . $conn->error;
     }
 }
 

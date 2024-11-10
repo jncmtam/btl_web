@@ -27,9 +27,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty($new_password)) {
         if ($new_password === $confirm_password) {
             $sql = "UPDATE users SET email='$email', phone='$phone', password='$new_password' WHERE username='$username'";
-            $password_message = "Cập nhật mật khẩu thành công!";
+            echo "<script> alert('Cập nhật mật khẩu thành công!'); window.location.href = 'profile.php';</script>";
+            // $password_message = "Cập nhật mật khẩu thành công!";
         } else {
-            $password_message = "Mật khẩu xác nhận không khớp!";
+            echo "<script> alert('Mật khẩu xác nhận không khớp!'); window.location.href = 'profile.php';</script>";
+            // $password_message = "Mật khẩu xác nhận không khớp!";
         }
     } else {
         $sql = "UPDATE users SET email='$email', phone='$phone' WHERE username='$username'";
@@ -37,9 +39,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Thực hiện câu lệnh cập nhật
     if ($conn->query($sql) === TRUE) {
-        $message = "Cập nhật thông tin thành công!";
+        echo "<script> alert('Cập nhật thông tin thành công!'); window.location.href = 'profile.php';</script>";
+        // $message = "Cập nhật thông tin thành công!";
     } else {
-        $message = "Lỗi cập nhật: " . $conn->error;
+        echo "<script> alert('Lỗi cập nhật! ".$conn->error."'); window.location.href = 'profile.php';</script>";
+        // $message = "Lỗi cập nhật: " . $conn->error;
     }
 
 }
@@ -102,8 +106,8 @@ $conn->close();
         </form>
 
         <!-- Hiển thị thông báo -->
-        <?php if (isset($message)) { echo "<p class='message'>$message</p>"; } ?>
-        <?php if (isset($password_message)) { echo "<p class='error'>$password_message</p>"; } ?>
+        <!-- <?php if (isset($message)) { echo "<p class='message'>$message</p>"; } ?>
+        <?php if (isset($password_message)) { echo "<p class='error'>$password_message</p>"; } ?> -->
 
     </main>
 

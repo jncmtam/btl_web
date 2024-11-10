@@ -1,7 +1,7 @@
 <!-- <?php
 session_start();
 
-$role = isset($_SESSION['role']) ? $_SESSION['role'] : 'guess';
+$role = isset($_SESSION['role']) ? $_SESSION['role'] : 'guest';
 ?> -->
 
 <!DOCTYPE html>
@@ -21,22 +21,24 @@ $role = isset($_SESSION['role']) ? $_SESSION['role'] : 'guess';
     <?php include 'nav.php'; ?>
 
     <main>
-        <section id="hero">
-            <h1>Welcome to Our Company</h1>
-            <p>Providing top-notch services and products for your needs.</p>
-            <a href="services.php" class="cta-button">Explore Our Services</a>
+        <h1>Welcome to Our Company</h1>
+            
+        <section id="about">
+            <h2>About BK Company</h2>
+            <p>We are a leading provider of quality services and products to help your business succeed.</p>
+            <a href="services.php">Abous Us</a>
         </section>
 
         <section id="services">
             <h2>Our Services</h2>
-            <div class="service-item">
-                <h3>Service 1</h3>
-                <p>High-quality service description.</p>
-            </div>
-            <div class="service-item">
-                <h3>Service 2</h3>
-                <p>Reliable and professional solutions.</p>
-            </div>
+            <p>Discover our wide range of services tailored to your needs.</p>
+            <a href="services.php">Explore Services</a>
+        </section>
+
+        <section id="news">
+            <h2>Latest News</h2>
+            <p>Stay updated with our latest news and updates.</p>
+            <a href="news.php">Read News</a>
         </section>
     </main> 
     

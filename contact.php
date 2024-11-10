@@ -6,7 +6,7 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] != 'user') {
     exit();
 }
 
-$role = $_SESSION['role'];
+$role = isset($_SESSION['role']) ? $_SESSION['role'] : 'guest';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
     // Kết nối cơ sở dữ liệu
@@ -17,15 +17,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
     $email = $_POST['email'];
     $message = $_POST['message'];
 
-    // Thực hiện câu lệnh SQL để lưu phản hồi vào bảng feedback
-    $sql = "INSERT INTO feedback (name, email, message) VALUES (?, ?, ?)";
+    // Thực hiện câu lệnh SQL để lưu phản hồi vào bảng contact
+    $sql = "INSERT INTO contacts (name, email, message) VALUES (?, ?, ?)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("sss", $name, $email, $message);
 
     if ($stmt->execute()) {
-        echo "<script>alert('Phản hồi của bạn đã được gửi thành công!');</script>";
+        echo "<script>alert('Phản hồi của bạn đã được gửi thành công!'); window.location.href = 'contact.php';</script>";
     } else {
-        echo "<script>alert('Lỗi khi gửi phản hồi: " . $stmt->error . "');</script>";
+        echo "<script>alert('Lỗi khi gửi phản hồi: " . $stmt->error . "'); window.location.href = 'contact.php';</script>";
     }
 
     $stmt->close();

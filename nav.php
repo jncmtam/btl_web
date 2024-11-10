@@ -6,16 +6,24 @@
             </a>
         </li>
 
-        <li><a href="about.php">About Us</a></li>
+        <?php if ($role === 'admin' || $role === 'user'): ?>
+            <li><a href="profile.php">Profile</a></li>
+        <?php endif; ?>
 
-        <li><a href="news.php">News</a></li>
+        <?php if ($role === 'guest' || $role === 'user'): ?>
+            <li><a href="about.php">About Us</a></li>
+        <?php endif; ?>
+        
+        <?php if ($role === 'guest' || $role === 'user'): ?>
+            <li><a href="news.php">News</a></li>
+        <?php endif; ?>
 
-        <?php if ($role === 'guess' || $role === 'user'): ?>
+        <?php if ($role === 'guest' || $role === 'user'): ?>
             <li><a href="services.php">Services</a></li>
         <?php endif; ?>
 
-        <?php if ($role === 'admin' || $role === 'user'): ?>
-            <li><a href="profile.php">Profile</a></li>
+        <?php if ($role === 'user'): ?>
+            <li><a href="shopping_cart.php">Shopping Cart</a></li>
         <?php endif; ?>
 
         <?php if ($role === 'user'): ?>
@@ -23,22 +31,30 @@
         <?php endif; ?>
 
         <?php if ($role === 'user'): ?>
+            <li><a href="feedback.php">Feedback</a></li>
+        <?php endif; ?>
+
+        <?php if ($role === 'user'): ?>
             <li><a href="pricing.php">Pricing</a></li>
         <?php endif; ?>
 
         <?php if ($role === 'admin'): ?>
-            <li><a href="contact_admin.php">Management Feedback</a></li>
+            <li><a href="services_admin.php">Manage Product</a></li>
         <?php endif; ?>
 
         <?php if ($role === 'admin'): ?>
-            <li><a href="services_admin.php">Management Product</a></li>
+            <li><a href="usermanagement.php">Manage User</a></li>
         <?php endif; ?>
 
         <?php if ($role === 'admin'): ?>
-            <li><a href="usermanagement.php">Management User</a></li>
+            <li><a href="news_admin.php">Manage News</a></li>
         <?php endif; ?>
 
-        <?php if ($role === 'guess'): ?>
+        <?php if ($role === 'admin'): ?>
+            <li><a href="contact_admin.php">Manage Contact</a></li>
+        <?php endif; ?>
+
+        <?php if ($role === 'guest'): ?>
             <li><a href="login.php">Login</a></li>
         <?php endif; ?>
 

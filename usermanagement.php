@@ -3,7 +3,7 @@ session_start();
 
 // Kiểm tra quyền truy cập
 if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin') {
-    header("Location: login.php");
+    header("Location: index.php");
     exit();
 }
 
@@ -113,7 +113,7 @@ $result = $conn->query($sql);
     <?php include 'nav.php'; ?>
 
     <main>
-        <table>
+        <table class="styled-table">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -133,7 +133,7 @@ $result = $conn->query($sql);
                         echo "<td>" . $row['email'] . "</td>";
                         echo "<td>" . $row['phone'] . "</td>";
                         echo "<td>
-                                <a href='usermanagement.php?edit_id=" . $row['id'] . "' onclick='showEditForm()'>Sửa</a> |
+                                <a href='usermanagement.php?edit_id=" . $row['id'] . "' onclick='showEditForm()'>Sửa</a>   
                                 <a href='usermanagement.php?delete_id=" . $row['id'] . "' onclick='return confirm(\"Bạn có chắc chắn muốn xóa người dùng này không?\")'>Xóa</a>
                             </td>";
                         echo "</tr>";
@@ -146,8 +146,8 @@ $result = $conn->query($sql);
         </table>
 
         <!-- Form sửa người dùng nếu có -->
-        <h2>Sửa thông tin người dùng</h2>
         <div id="editForm" style="display: <?php echo isset($user) ? 'block' : 'none'; ?>;">
+            <h2>Sửa thông tin người dùng</h2>
             <form action="" method="POST">
                 <input type="hidden" name="user_id" value="<?php echo isset($user) ? $user['id'] : ''; ?>">
                 <label for="username">Tên người dùng:</label>

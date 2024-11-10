@@ -13,21 +13,21 @@
 
 ### Giao diện
 
-- **Home:** index.php(guess), admin.php(admin), user.php(user)
+- **Home:** index.php(guest), admin.php(admin), user.php(user)
   - Trang chủ
-  - Guess, User, Admin
+  - Guest, User, Admin
 - **About Us:** about.php
   - Trang thông tin công ty
-  - Guess, User, Admin
+  - Guest, User, Admin
 - **News:** news.php
   - Trang tin tức, sự kiện
-  - Guess, User, Admin
+  - Guest, User, Admin
 - **Services:** services.php
   - Trang sản phẩm
-  - Guess, User
+  - Guest, User
 - **Contact:** contact.php
   - Trang phản hồi 
-  - Guess, User
+  - Guest, User
 - **Pricing:** pricing.php
   - Trang giao dịch
   - User
@@ -39,10 +39,10 @@
   - Admin
 - **Login:** login.php
   - Trang đăng nhập
-  - Guess
+  - Guest
 - **Register:** register.php
   - Trang đăng kí
-  - Guess 
+  - Guest 
 
 
 ### Database (company_website)
@@ -53,11 +53,16 @@
   - quantity:
   - image:
 - **User:**
-  - id
+  - id:
   - username
-  - password
-  - role
-  - phone
-  - email
+  - password:
+  - role:
+  - phone:
+  - email:
+- **Contact:**
+  - id:
+  - name:
+  - message:
+  - created at:
 - **News:** (chưa có)
-- **Contacts:** (chưa có)
+- **Feedback:** (chưa có)

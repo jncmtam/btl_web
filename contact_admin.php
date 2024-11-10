@@ -3,7 +3,7 @@ session_start();
 
 // Kiểm tra nếu người dùng không phải là admin
 if (!isset($_SESSION['username']) || $_SESSION['role'] != 'admin') {
-    header("Location: login.php");
+    header("Location: index.php");
     exit();
 }
 
@@ -14,15 +14,15 @@ include 'db.php'; // Kết nối đến cơ sở dữ liệu
 // Xóa phản hồi nếu có yêu cầu
 if (isset($_POST['delete_id'])) {
     $deleteId = $_POST['delete_id'];
-    $stmt = $conn->prepare("DELETE FROM feedback WHERE id = ?");
+    $stmt = $conn->prepare("DELETE FROM contacts WHERE id = ?");
     $stmt->bind_param("i", $deleteId);
     $stmt->execute();
     $stmt->close();
-    echo "<p>Phản hồi đã được xóa.</p>";
+    echo "<script>alert('Phản hồi đã được xóa!'); window.location.href = 'contact_admin.php';</script>";
 }
 
-// Truy vấn lấy dữ liệu từ bảng feedback
-$sql = "SELECT * FROM feedback ORDER BY created_at DESC";
+// Truy vấn lấy dữ liệu từ bảng contacts
+$sql = "SELECT * FROM contacts ORDER BY created_at DESC";
 $result = $conn->query($sql);
 
 ?>
@@ -31,7 +31,7 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - User Feedback</title>
+    <title>Admin - Manage contacts</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -40,8 +40,8 @@ $result = $conn->query($sql);
     <?php include 'nav.php'; ?>
 
     <main>
-        <h1>User Feedback</h1>
-        <table>
+        <h1>Manage Contact</h1>
+        <table class="styled-table">
             <tr>
                 <th>ID</th>
                 <th>Name</th>

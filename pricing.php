@@ -5,7 +5,7 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] != 'user') {
     exit();
 }
 
-$role = isset($_SESSION['role']) ? $_SESSION['role'] : 'guess';
+$role = isset($_SESSION['role']) ? $_SESSION['role'] : 'guest';
 ?>
 
 <!DOCTYPE html>
@@ -31,3 +31,4 @@ $role = isset($_SESSION['role']) ? $_SESSION['role'] : 'guess';
 
 </body>
 </html>
+
