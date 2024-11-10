@@ -16,6 +16,9 @@
 - **Home:** index.php(guest), admin.php(admin), user.php(user)
   - Trang chủ
   - Guest, User, Admin
+- **Profile:** profile.php
+  - Trang cá nhân
+  - User, Admin
 - **About Us:** about.php
   - Trang thông tin công ty
   - Guest, User, Admin
@@ -28,14 +31,23 @@
 - **Contact:** contact.php
   - Trang phản hồi 
   - Guest, User
+- **Shopping Cart:** shopping_cart.php
+  - Trang giỏ hàng
+  - User
 - **Pricing:** pricing.php
   - Trang giao dịch
-  - User
+  - User  
 - **Product Management:** services_admin.php
   - Trang quản lý sản phẩm
   - Admin
-- **User Management:** usermanagement
+- **User Management:** usermanagement.php
   - Trang quản lý người dùng
+  - Admin
+- **News Management:** news_admin.php
+  - Trang quản lý tin tức
+  - Admin 
+- **Feedback Management:** feedback_admin.php
+  - Trang quản lý feedback
   - Admin
 - **Login:** login.php
   - Trang đăng nhập
@@ -63,6 +75,17 @@
   - id:
   - name:
   - message:
-  - created at:
-- **News:** (chưa có)
-- **Feedback:** (chưa có)
+  - created_at:
+- **News:** 
+  - id:
+  - title:
+  - content
+  - image(nếu có):
+  - created_at: 
+- **Feedbacks:**  
+  - id
+  - user_id:
+  - type: 
+  - reference_id:
+  - comment:
+  - created_at:
