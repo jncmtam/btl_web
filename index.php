@@ -35,7 +35,7 @@ $role = isset($_SESSION['role']) ? $_SESSION['role'] : 'guest';
             <a href="services.php">Explore Services</a>
         </section>
 
-        <section id="news">
+        <section id="news-home">
             <h2>Latest News</h2>
             <p>Stay updated with our latest news and updates.</p>
             <a href="news.php">Read News</a>
