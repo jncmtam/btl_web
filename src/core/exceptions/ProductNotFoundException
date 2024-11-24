@@ -1,0 +1,12 @@
+<?php
+    
+    class ProductNotFoundException extends Exception{
+        protected $message = "Product not found.";
+        protected $code = 404;
+        protected $productId;
+
+        public function __construct($productId = null) {
+            $this->productId = $productId;
+            $this->message = "Product not found (ID: {$productId})";
+        }
+    }

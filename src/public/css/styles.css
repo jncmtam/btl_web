@@ -1,0 +1,438 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Layout: Ensures footer stays at the bottom */
+html, body {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Flexbox layout for body to stretch */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures footer is pushed down */
+}
+
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: black;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.company-name {
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+
+.company-info {
+    font-size: 14px;
+    color: white;
+    text-align: right;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+
+/* Navigation styles */
+nav {
+    background-color: #444;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #f4b400; /* Add hover effect */
+}
+
+/* Main content styles */
+main {
+    flex: 1; /* Allows the main content to grow */
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+main h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+main p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+
+section {
+    padding: 20px;
+    margin: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.service-item {
+    margin: 20px 0;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.cta-button:hover {
+    background-color: #555;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Form Styling */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+form button {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+form p {
+    text-align: center;
+    margin-top: 20px;
+}
+
+form a {
+    color: #333;
+    text-decoration: underline;
+}
+
+form a:hover {
+    color: #555;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.product {
+    float: left;
+    text-align: center;
+    width: 50%;
+    background-color: white;
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.product img {
+    width: 60%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.product p {
+    margin-top: 10px;
+}
+
+main section {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f1f1f1;
+    border-radius: 8px;
+}
+
+main section h2 {
+    font-size: 1.6em;
+    margin-bottom: 8px;
+}
+
+main section p {
+    font-size: 1em;
+    color: #333;
+}
+
+main section a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main section a:hover {
+    text-decoration: underline;
+}
+
+.quantity_label {
+    display: inline-block; 
+    width: 100px;
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+.styled-table th, .styled-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd; /* Viền từng ô */
+    text-align: left;
+}
+
+.styled-table th {
+    background-color: #f2f2f2; /* Màu nền header */
+}
+
+.styled-table tr {
+    border-bottom: 1px solid #ddd; /* Viền từng hàng */
+}
+
+.styled-table tr:last-child {
+    border-bottom: none; /* Bỏ viền cuối cùng để không bị đè viền */
+}
+
+.styled-table tr:hover {
+    background-color: #f9f9f9; /* Hiệu ứng hover cho từng hàng */
+}
+
+.styled-table button {
+    padding: 8px 16px;
+    color: #fff;
+    background-color: black;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.styled-table button:hover {
+    background-color: gray;
+}
+
+.styled-table a {
+    padding: 8px 16px;
+    color: #fff;
+    background-color: black;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+.styled-table a:hover {
+    background-color: gray;
+}
+
+#news {
+    padding: 20px;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center; /* Căn giữa phần tử con */
+    align-items: center; /* Căn giữa phần tử theo chiều dọc */
+    min-height: 100vh;
+}
+
+.news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%; 
+    /* max-width: 800px; */
+}
+
+.news-item {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center; 
+}
+
+.news-item h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.news-item p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.news-item em {
+    font-size: 14px;
+    color: #888;
+}
+
+.news-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin: 15px auto 0 auto;
+}
+
+.company-intro,
+.about_mission,
+.about_values,
+.about_services,
+.team {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.company-intro img,
+.team-members .member img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.company-intro {
+    text-align: center;
+}
+
+.about_values ul, .about_services ul {
+    list-style-type: disc;
+    margin: 10px 20px;
+}
+
+.about_values ul li, .about_services ul li {
+    margin-bottom: 5px;
+}
+
+.team-members {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.member {
+    text-align: center;
+    max-width: 150px;
+}
+
+.member h3 {
+    font-size: 18px;
+    margin: 10px 0 5px;
+}
+
+.member p {
+    font-size: 14px;
+    color: #555;
+}
+
+.validation-error {
+    color: red;
+    font-size: small;
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        display: flex;
+        margin: 10px 0;
+        justify-content: center;
+    }
+
+    .product {
+        float: left;
+        width: 100%;
+    }
+
+    .news-item h2 {
+        font-size: 20px;
+    }
+    .news-item p {
+        font-size: 14px;
+    }
+}
