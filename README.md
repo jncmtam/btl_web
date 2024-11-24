@@ -7,10 +7,10 @@
 	1. `$shop["username"] = "root";` // sửa nếu cần
 	2. `$shop["password"] = "";` // sửa nếu cần
 	3. `$config["root_path"] = "D:\HCMUT\Lap-trinh-web\BTL\github\btl_web\src";` // sửa thành path trên máy local
-2. Chạy file `makeENVdata.php` bằng cmd (như hình `demo.png`)
+2. Chạy file `makeENVdata.php` bằng cmd (như hình `src/demo.png`)
 ## 3. Config xampp
 1. Sửa file `httpd.conf` của xampp
-	1. Thêm đoạn code sau vào cuối file (sửa đường dẫn thư mục trên máy):
+	1. Thêm đoạn code sau vào cuối file (sửa đường dẫn theo thư mục trên máy):
 ```
 <VirtualHost shop.localtest.me:80>
     ServerName shop.localtest.me
