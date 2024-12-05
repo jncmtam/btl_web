@@ -43,7 +43,7 @@
                 echo "<li><a href='".Application::$baseUrl."/services_admin'>Manage Product</a></li>";
                 echo "<li><a href='".Application::$baseUrl."/usermanagement'>Manage User</a></li>";
                 echo "<li><a href='".Application::$baseUrl."/newsmanagement'>Manage News</a></li>";
-                echo "<li><a href='".Application::$baseUrl."/contact_admin'>Manage Contact</a></li>";
+                echo "<li><a href='".Application::$baseUrl."/contact_management'>Manage Contact</a></li>";
             }
             if ($role === 'guest') {
                 echo "<li><a href='". Application::$baseUrl."/login'>Login</a></li>";

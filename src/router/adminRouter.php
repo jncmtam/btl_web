@@ -20,3 +20,6 @@ $app->router->get('/newsmanagement', $adminController, 'showManageNewsPage');
 $app->router->post('/addNews', $adminController, 'addNews');
 $app->router->get('/deleteNews', $adminController, 'deleteNews');
 $app->router->post('/updateNews', $adminController, 'updateNews');
+
+$app->router->get('/contact_management', $adminController, 'showManageContactPage');
+$app->router->post('/delete_contact', $adminController, 'deleteContact');

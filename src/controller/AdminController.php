@@ -470,4 +470,56 @@ class AdminController extends Controller
             "newsList" => $news
         ]);
     }
+
+    public function showManageContactPage(Request $req, Response $res) {
+        // Check session
+        $userid = Application::$session->get("userid");
+        $username = Application::$session->get("username");
+        $userRole = Application::$session->get("userRole");
+
+        if (!isset($username) || $userRole != "admin") {
+            $res->renderUserView('/login', ["message" => "Your session is expired. Please login again."]);
+            return;
+        }
+
+        // get news
+        $contacts = ContactModel::select();
+        $res->renderUserView('contact_admin', [
+            "contacts" => $contacts
+        ]);
+    }
+
+    public function deleteContact(Request $req, Response $res) {
+        // Check session
+        $userid = Application::$session->get("userid");
+        $username = Application::$session->get("username");
+        $userRole = Application::$session->get("userRole");
+
+        if (!isset($username) || $userRole != "admin") {
+            $res->renderUserView('/login', ["message" => "Your session is expired. Please login again."]);
+            return;
+        }
+
+        // Get params
+        $body = $req->getBody();
+        if (!isset($body["delete_id"])) {
+            // get contacts
+            $contacts = ContactModel::select();
+            $res->renderUserView('contact_admin', [
+                "contacts" => $contacts,
+                "message" => "Delete ID is required."
+            ]);
+        }
+
+        // delete contact
+        $contactModel = new ContactModel([]);
+        $contactModel->id = $body["delete_id"];
+        $contactModel->delete();
+
+        // get contacts
+        $contacts = ContactModel::select();
+        $res->renderUserView('contact_admin', [
+            "contacts" => $contacts
+        ]);
+    }
 }
