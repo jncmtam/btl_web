@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 10, 2024 lúc 03:40 AM
+-- Thời gian đã tạo: Th12 05, 2024 lúc 04:38 AM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -35,6 +35,13 @@ CREATE TABLE `contacts` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `contacts`
+--
+
+INSERT INTO `contacts` (`id`, `name`, `email`, `message`, `created_at`) VALUES
+(1, 'Kiet', 'kiet@gmail.com', 'chất lượng sản phẩm quá tốt, giá rẻ\r\n', '2024-12-05 03:30:47');
+
 -- --------------------------------------------------------
 
 --
@@ -56,7 +63,8 @@ CREATE TABLE `feedbacks` (
 
 INSERT INTO `feedbacks` (`id`, `user_id`, `type`, `reference_id`, `comment`, `created_at`) VALUES
 (1, 1, 'news', 5, 'Cảm ơn công ty ', '2024-11-08 12:11:18'),
-(2, 1, 'product', 2, 'Giá cao quá', '2024-11-08 12:13:27');
+(2, 4, 'products', 2, 'Giá rẻ quá', '2024-11-08 12:13:27'),
+(3, 3, 'products', 3, 'Chất lượng chưa đạt yêu cầu', '2024-11-08 12:13:27');
 
 -- --------------------------------------------------------
 
@@ -77,8 +85,8 @@ CREATE TABLE `news` (
 --
 
 INSERT INTO `news` (`id`, `title`, `content`, `image`, `created_at`) VALUES
-(3, 'Cập nhật ổ cứng di động External SSD', 'Giảm giá 10%......', 'https://m.media-amazon.com/images/I/911ujeCkGfL._AC_UY436_FMwebp_QL65_.jpg', '2024-11-08 08:14:23'),
-(5, 'Nghỉ lễ 30/4-1/5', 'Tạm dừng bán hàng trong 2 ngày ', NULL, '2024-11-08 08:20:26');
+(1, 'Nghỉ lễ 30/4-1/5', 'Tạm dừng bán hàng trong 2 ngày ', NULL, '2024-11-08 08:20:26'),
+(2, 'Cập nhật ổ cứng di động External SSD', 'Giảm giá 10%......', 'https://m.media-amazon.com/images/I/911ujeCkGfL._AC_UY436_FMwebp_QL65_.jpg', '2024-11-08 08:14:23');
 
 -- --------------------------------------------------------
 
@@ -101,7 +109,10 @@ CREATE TABLE `products` (
 INSERT INTO `products` (`id`, `name`, `price`, `quantity`, `image`) VALUES
 (1, 'Usb Kingston 3.0', 100000, 10, 'https://m.media-amazon.com/images/I/31UpGSJdmqL._AC_.jpg'),
 (2, 'RAM Laptop Samsung 8GB', 200000, 5, 'https://m.media-amazon.com/images/I/71cWL5j3FqL._AC_UY436_FMwebp_QL65_.jpg'),
-(3, 'Ổ cứng di động External SSD', 50000, 12, 'https://m.media-amazon.com/images/I/911ujeCkGfL._AC_UY436_FMwebp_QL65_.jpg');
+(3, 'Ổ cứng di động External SSD', 50000, 12, 'https://m.media-amazon.com/images/I/911ujeCkGfL._AC_UY436_FMwebp_QL65_.jpg'),
+(4, 'Chuột không dây siêu nhẹ Pwnage StormBreaker X BLG Valorant', 4390000, 32, 'https://www.phongcachxanh.vn/cdn/shop/files/chu-t-khong-day-sieu-nh-pwnage-stormbreaker-x-blg-valorant-collector-s-edition-41558252028149.jpg'),
+(5, 'Tai Nghe Bluetooth JBL Live 770NC', 3900000, 15, 'https://bachlongstore.vn/vnt_upload/product/06_2024/523623.png'),
+(6, 'Pin sạc dự phòng 20000mAh Type C PD 45W Samsung EB-P4520', 1130000, 20, 'https://bachlongstore.vn/vnt_upload/product/09_2024/pin_sac_du_phong_20000mah_type_c_pd_45w_samsung_eb_p4520_2.png');
 
 -- --------------------------------------------------------
 
@@ -122,8 +133,11 @@ CREATE TABLE `shopping_cart` (
 --
 
 INSERT INTO `shopping_cart` (`id`, `username`, `product_id`, `quantity`, `created_at`) VALUES
-(1, 'shadow', 1, 1, '2024-11-08 06:48:24'),
-(2, 'shadow', 2, 1, '2024-11-08 06:54:42');
+(1, 'Kiet', 1, 1, '2024-11-08 06:48:24'),
+(2, 'Truong', 2, 2, '2024-11-08 06:54:42'),
+(3, 'Tam', 4, 1, '2024-12-05 03:33:26'),
+(4, 'Truong', 5, 1, '2024-12-05 03:33:54'),
+(5, 'Tam', 1, 1, '2024-12-05 03:34:25');
 
 -- --------------------------------------------------------
 
@@ -145,9 +159,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `role`, `phone`, `email`) VALUES
-(1, 'shadow', 'shadow', 'user', '123456', 'shadow@gmail.com'),
-(2, 'harry', 'harry', 'admin', '123456', 'harry@gmail.com'),
-(3, 'bach', '$2y$10$NzpohRqNAKkw5DISuKpj/.X.h3VdGDSUcMBllNllFYKbkEVbkxJLS', 'user', '123321', 'bach@gmail.com');
+(1, 'Tam', '$2y$10$SxZdBBnnzCfFlrf9WNzOtOaGKOGUvswR0brcvUx8Fn7zRpcCd6gRG', 'user', '0957415456', 'tam@gmail.com'),
+(2, 'Bach', '$2y$10$SxZdBBnnzCfFlrf9WNzOtOaGKOGUvswR0brcvUx8Fn7zRpcCd6gRG', 'admin', '0857842145', 'bach@gmail.com'),
+(3, 'Truong', '$2y$10$SxZdBBnnzCfFlrf9WNzOtOaGKOGUvswR0brcvUx8Fn7zRpcCd6gRG', 'user', '0875694128', 'truong@gmail.com'),
+(4, 'Kiet', '$2y$10$SxZdBBnnzCfFlrf9WNzOtOaGKOGUvswR0brcvUx8Fn7zRpcCd6gRG', 'user', '0987458751', 'kiet@gmail.com');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -201,13 +216,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `feedbacks`
 --
 ALTER TABLE `feedbacks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `news`
@@ -219,19 +234,19 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `shopping_cart`
 --
 ALTER TABLE `shopping_cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

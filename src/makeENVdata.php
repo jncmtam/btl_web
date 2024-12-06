@@ -1,21 +1,20 @@
 <?php
-    $config = [];
+$config = [];
 
-    $config["databases"] = [];
+$config["databases"] = [];
 
-    $shop = [];
-    $shop["name"] = "shop";
-    $shop["type"] = "mysql";
-    $shop["host"] = "localhost";
-    $shop["username"] = "root";
-    $shop["password"] = "Mysqlserver@123";
-    array_push($config["databases"], $shop);
+$shop = [];
+$shop["name"] = "shop";
+$shop["type"] = "mysql";
+$shop["host"] = "localhost";
+$shop["username"] = "root";
+$shop["password"] = "";
+array_push($config["databases"], $shop);
 
-    $config["server_name"] = "shop.localtest.me";
-    $config["root_path"] = "D:\HCMUT\Lap-trinh-web\BTL\github\btl_web\src";
-    
-    $config = json_encode($config);
-    $envFile = fopen("./private/.env", "w") or die("Unable to open .env file.");
-    fwrite($envFile, $config);
-    fclose($envFile);
-    
+$config["server_name"] = "shop.localtest.me";
+$config["root_path"] = "D:\HCMUT\btl_web-develop_mvc\src";
+
+$config = json_encode($config);
+$envFile = fopen("./private/.env", "w") or die("Unable to open .env file.");
+fwrite($envFile, $config);
+fclose($envFile);
